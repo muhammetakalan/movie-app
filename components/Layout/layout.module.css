@@ -1,0 +1,8 @@
+.layout {
+  display: flex;
+  height: inherit;
+}
+
+.content {
+  flex: 1;
+}

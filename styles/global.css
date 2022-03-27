@@ -1,0 +1,17 @@
+@import "reset.css";
+@import "normalize.css";
+@import "formalize.css";
+
+* {
+  transition: all 0.2s ease;
+}
+
+body {
+  color: white;
+  background-color: #191a1f;
+}
+
+body,
+#__next {
+  height: 100vh;
+}
