@@ -6,12 +6,17 @@
   transition: all 0.2s ease;
 }
 
-body {
-  color: white;
-  background-color: #191a1f;
-}
-
 body,
 #__next {
   height: 100vh;
+}
+
+body {
+  color: white;
+  font-family: Roboto;
+  background-color: #191a1f;
+}
+
+a {
+  color: inherit;
 }
