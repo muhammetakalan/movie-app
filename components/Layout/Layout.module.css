@@ -1,0 +1,18 @@
+.layout {
+  display: flex;
+  height: inherit;
+}
+
+.content {
+  z-index: 1;
+  flex: 1;
+  padding: 80px 505px 80px 80px;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 1600px) {
+  .content {
+    padding: 80px 80px 80px 80px;
+  }
+}

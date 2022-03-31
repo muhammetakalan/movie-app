@@ -1,10 +1,10 @@
-import styles from "./left-side.module.css";
+import styles from "./LeftSide.module.css";
 import Link from "next/link";
 import { BiCompass } from "react-icons/bi";
 import { CgMediaLive } from "react-icons/cg";
 import { IoLogOutOutline } from "react-icons/io5";
 import {
-  RiMovie2Line,
+  RiMovie2Fill,
   RiHomeFill,
   RiTimerFlashLine,
   RiUserLine,
@@ -17,7 +17,7 @@ export default function LeftSide() {
       <div className={styles.container}>
         <Link href="/">
           <a className={styles.logo}>
-            <RiMovie2Line color="#d22f27" />
+            <RiMovie2Fill color="#d22f27" />
             Exxmon
           </a>
         </Link>
@@ -25,7 +25,7 @@ export default function LeftSide() {
           <div className={styles.title}>MENU</div>
           <Link href="/">
             <a>
-              <RiHomeFill color="#d22f27" />
+              <RiHomeFill />
               Home
             </a>
           </Link>

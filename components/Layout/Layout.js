@@ -1,7 +1,6 @@
-import styles from "./layout.module.css";
-
-import LeftSide from "./left-side";
-import RightSide from "./right-side";
+import styles from "./Layout.module.css";
+import LeftSide from "./LeftSide";
+import RightSide from "./RightSide";
 
 export default function Layout({ children }) {
   return (

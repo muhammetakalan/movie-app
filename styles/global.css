@@ -1,10 +1,6 @@
 @import "reset.css";
-@import "normalize.css";
 @import "formalize.css";
-
-* {
-  transition: all 0.2s ease;
-}
+@import "normalize.css";
 
 body,
 #__next {
@@ -19,4 +15,8 @@ body {
 
 a {
   color: inherit;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #d22f27 !important;
 }
