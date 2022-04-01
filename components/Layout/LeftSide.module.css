@@ -6,6 +6,12 @@
   font-weight: bold;
 }
 
+@media screen and (max-width: 1000px) {
+  .leftside {
+    display: none;
+  }
+}
+
 .leftside > * svg {
   margin-right: 10px;
 }

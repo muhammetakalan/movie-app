@@ -1,7 +1,7 @@
 import styles from "./Layout.module.css";
 import LeftSide from "./LeftSide";
-import RightSide from "./RightSide";
 import Navbar from "./Navbar";
+import RightSide from "./RightSide";
 
 export default function Layout({ children }) {
   return (

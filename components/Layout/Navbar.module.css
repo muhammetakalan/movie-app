@@ -5,6 +5,15 @@
   color: #989898;
 }
 
+@media screen and (max-width: 1000px) {
+  .navbar {
+    display: block;
+  }
+  .navbar > * {
+    margin-bottom: 25px;
+  }
+}
+
 .navbar > * {
   margin-right: 50px;
 }
