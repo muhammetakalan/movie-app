@@ -1,41 +1,39 @@
 import styles from "./index.module.css";
 import MovieCard from "../components/Cards/MovieCard";
-import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/pagination";
-
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
 
 export default function Index({ data }) {
   function tmdbGenreIdToName(id) {
     const genres = [
-      { id: 28, name: "Aksiyon" },
-      { id: 12, name: "Macera" },
-      { id: 16, name: "Animasyon" },
-      { id: 35, name: "Komedi" },
-      { id: 80, name: "Suç" },
-      { id: 99, name: "Belgesel" },
+      { id: 28, name: "Action" },
+      { id: 12, name: "Adventure" },
+      { id: 16, name: "Animation" },
+      { id: 35, name: "Comedy" },
+      { id: 80, name: "Crime" },
+      { id: 99, name: "Documentary" },
       { id: 18, name: "Drama" },
-      { id: 10751, name: "Aile" },
-      { id: 14, name: "Fantezi" },
-      { id: 36, name: "Geçmiş" },
-      { id: 27, name: "Korku" },
-      { id: 10402, name: "Müzik" },
-      { id: 9648, name: "Gizem" },
-      { id: 10749, name: "Romantik" },
-      { id: 878, name: "Bilim Kurgu" },
-      { id: 10770, name: "TV Filmi" },
-      { id: 53, name: "Gerilim" },
-      { id: 10752, name: "Savaş" },
-      { id: 37, name: "Batı" },
+      { id: 10751, name: "Family" },
+      { id: 14, name: "Fantasy" },
+      { id: 36, name: "History" },
+      { id: 27, name: "Horror" },
+      { id: 10402, name: "Music" },
+      { id: 9648, name: "Mystery" },
+      { id: 10749, name: "Romance" },
+      { id: 878, name: "Science Fiction" },
+      { id: 10770, name: "TV Movie" },
+      { id: 53, name: "Thriller" },
+      { id: 10752, name: "War" },
+      { id: 37, name: "Western" },
     ];
     return genres.find((genre) => genre.id === id).name;
   }
 
   return (
     <>
-      <div className={styles.bigcard}>
+      <div className={styles.slider}>
         <Swiper
           spaceBetween={50}
           slidesPerView={1}
@@ -62,7 +60,7 @@ export default function Index({ data }) {
           ))}
         </Swiper>
       </div>
-      <div className={styles.minicards}>
+      <div className={styles.movies}>
         {data.results.slice(4).map((movie) => (
           <MovieCard
             category={tmdbGenreIdToName(movie.genre_ids[0])}
