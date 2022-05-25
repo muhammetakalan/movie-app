@@ -1,4 +1,4 @@
-import styles from "./LeftSide.module.css";
+import styles from "./index.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { BiCompass } from "react-icons/bi";

@@ -1,4 +1,4 @@
-import styles from "./Layout.module.css";
+import styles from "./index.module.css";
 import LeftSide from "./LeftSide";
 import Navbar from "./Navbar";
 import RightSide from "./RightSide";

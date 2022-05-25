@@ -20,5 +20,5 @@ export const tmdbGenreIdToName = (id) => {
     { id: 10752, name: "War" },
     { id: 37, name: "Western" },
   ];
-  return genres.find((genre) => genre.id === id).name;
+  return genres.find((genre) => genre.id === id)?.name;
 };

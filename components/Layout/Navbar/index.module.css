@@ -8,10 +8,13 @@
 
 @media screen and (max-width: 1000px) {
   .navbar {
-    display: block;
+    flex-direction: column;
   }
   .navbar > * {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+  }
+  .navbar > *:last-child {
+    margin-bottom: 0;
   }
 }
 

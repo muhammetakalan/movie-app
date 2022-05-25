@@ -1,9 +1,37 @@
-.slider {
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
   margin-bottom: 50px;
+}
+
+.slider > *:first-child,
+.slider img {
+  height: 400px !important;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin-bottom: 25px;
+  gap: 50px;
+}
+
+.categories > * {
+  height: 200px !important;
 }
 
 .movies {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 50px;
+}
+
+.movies > * {
+  height: 300px !important;
+}
+
+.movies > *,
+.categories > *,
+.slider > * {
+  border-radius: 20px;
 }

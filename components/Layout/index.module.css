@@ -4,7 +4,6 @@
 }
 
 .content {
-  z-index: 1;
   flex: 1;
   padding: 80px 505px 80px 80px;
   overflow-y: auto;
@@ -14,4 +13,18 @@
   .content {
     padding: 80px;
   }
+}
+
+@media screen and (max-width: 1000px) {
+  .content {
+    padding: 40px;
+  }
+}
+
+.content > * {
+  margin-bottom: 50px;
+}
+
+.content > *:last-child {
+  margin-bottom: 0;
 }

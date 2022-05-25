@@ -44,6 +44,10 @@
   transition: all 0.2s;
 }
 
+.nav > *:last-child {
+  margin-bottom: 0;
+}
+
 .nav > a:hover {
   color: #fff;
 }
