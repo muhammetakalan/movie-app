@@ -1,79 +1,65 @@
 import styles from "./index.module.css";
 import "swiper/css";
-import "swiper/css/pagination";
-import ReactPlaceholder from "react-placeholder";
 import MovieCard from "../components/Card";
-import { tmdbGenreIdToName } from "../utils";
+import { tmdbGenreIdToName, getData } from "../utils";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchMovies } from "../store/movieSlice";
+import { Autoplay } from "swiper";
 
-export default function Index() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchMovies("popular"));
-  }, [dispatch]);
-
-  const state = useSelector((state) => state.movie);
-
+export default function Index({ data }) {
   return (
     <>
       <div className={styles.slider}>
-        {state.loading && <ReactPlaceholder type="rect" />}
         <Swiper
-          spaceBetween={50}
-          slidesPerView={1}
+          spaceBetween={25}
+          slidesPerView={2}
           autoplay={{
             delay: 5000,
             pauseOnMouseEnter: true,
             disableOnInteraction: false,
           }}
-          modules={[Autoplay, Pagination]}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
+          modules={[Autoplay]}
         >
-          {state.popular?.results.slice(0, 4).map((movie) => (
+          {data?.results.slice(0, 4).map((movie) => (
             <SwiperSlide>
-              <MovieCard
-                poster={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                category={tmdbGenreIdToName(movie.genre_ids[0])}
-                rate={Math.round(movie.vote_average / 2)}
-                title={movie.title}
-              />
+              <a href={`/movie/${movie.id}`}>
+                <MovieCard
+                  poster={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                  category={tmdbGenreIdToName(movie.genre_ids[0])}
+                  rate={Math.round(movie.vote_average / 2)}
+                  title={movie.title}
+                />
+              </a>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
       <div className={styles.category}>
-        <div className={styles.title}>Categories</div>
+        <div className={styles.title}>Kategoriler</div>
         <div className={styles.categories}>
-          {[...new Array(6)].map(() => {
-            return <ReactPlaceholder type="rect" />;
+          {[...new Array(4)].map(() => {
+            return <img src="https://dummyimage.com/295x200/989898" />;
           })}
         </div>
       </div>
       <div className={styles.movie}>
-        <div className={styles.title}>Movies</div>
+        <div className={styles.title}>Filmler</div>
         <div className={styles.movies}>
-          {state.loading &&
-            [...new Array(16)].map(() => {
-              return <ReactPlaceholder type="rect" />;
-            })}
-          {state.popular?.results.slice(4).map((movie) => (
-            <MovieCard
-              poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              category={tmdbGenreIdToName(movie.genre_ids[0])}
-              rate={Math.round(movie.vote_average / 2)}
-              title={movie.title}
-            />
+          {data?.results.slice(4).map((movie) => (
+            <a href={`/movie/${movie.id}`}>
+              <MovieCard
+                poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                category={tmdbGenreIdToName(movie.genre_ids[0])}
+                rate={Math.round(movie.vote_average / 2)}
+                title={movie.title}
+              />
+            </a>
           ))}
         </div>
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  return getData("/discover/movie");
 }

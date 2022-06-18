@@ -9,18 +9,10 @@ body,
 
 body {
   color: white;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   background-color: #191a1f;
 }
 
 a {
   color: inherit;
-}
-
-.swiper-pagination-bullet-active {
-  background-color: #d22f27 !important;
-}
-
-.rect-shape {
-  background-color: #989898 !important;
 }

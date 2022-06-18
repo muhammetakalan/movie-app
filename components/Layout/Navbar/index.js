@@ -1,21 +1,22 @@
 import styles from "./index.module.css";
-import { useRouter } from "next/router";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
-  const router = useRouter();
-  const path = router.query.category;
+  const path = useRouter().pathname;
 
   return (
     <div className={styles.navbar}>
       <Link href="/popular">
-        <a className={path == "popular" && styles.active}>Popular</a>
+        <a className={path == "/popular" && styles.active}>Popüler</a>
       </Link>
-      <Link href="/top_rated">
-        <a className={path == "top_rated" && styles.active}>Top Rated</a>
+      <Link href="/top-rated">
+        <a className={path == "/top-rated" && styles.active}>En Beğenilen</a>
       </Link>
-      <Link href="/now_playing">
-        <a className={path == "now_playing" && styles.active}>Now Playing</a>
+      <Link href="/now-playing">
+        <a className={path == "/now-playing" && styles.active}>
+          Şuanda Oynayan
+        </a>
       </Link>
     </div>
   );
