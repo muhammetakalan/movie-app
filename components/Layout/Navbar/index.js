@@ -11,12 +11,10 @@ export default function Navbar() {
         <a className={path == "/popular" && styles.active}>Popüler</a>
       </Link>
       <Link href="/top-rated">
-        <a className={path == "/top-rated" && styles.active}>En Beğenilen</a>
+        <a className={path == "/top-rated" && styles.active}>Beğenilen</a>
       </Link>
       <Link href="/now-playing">
-        <a className={path == "/now-playing" && styles.active}>
-          Şuanda Oynayan
-        </a>
+        <a className={path == "/now-playing" && styles.active}>Oynayan</a>
       </Link>
     </div>
   );

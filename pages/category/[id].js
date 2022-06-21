@@ -1,8 +1,8 @@
-import styles from "./index.module.css";
-import MovieCard from "../components/Card";
-import { tmdbGenreIdToName, getData } from "../utils";
+import styles from "../index.module.css";
+import MovieCard from "../../components/Card";
+import { tmdbGenreIdToName, getData } from "../../utils";
 
-export default function NowPlaying({ data }) {
+export default function Animation({ data }) {
   return (
     <div className={styles.movie}>
       <div className={styles.movies}>
@@ -21,6 +21,13 @@ export default function NowPlaying({ data }) {
   );
 }
 
-export async function getStaticProps() {
-  return getData("/movie/now_playing");
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { id: "878" } }],
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  return getData("/discover/movie", `with_genres=${params.id}`);
 }

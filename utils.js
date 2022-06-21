@@ -23,9 +23,9 @@ export const tmdbGenreIdToName = (id) => {
   return genres.find((genre) => genre.id === id)?.name;
 };
 
-export const getData = async (endpoint) => {
+export const getData = async (endpoint, query) => {
   const data = await fetch(
-    `${process.env.TMDB_API_URL}${endpoint}?api_key=${process.env.TMDB_API_KEY}&language=tr`
+    `${process.env.TMDB_API_URL}${endpoint}?api_key=${process.env.TMDB_API_KEY}&language=tr&${query}`
   );
 
   return { props: { data: await data.json() } };

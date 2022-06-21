@@ -10,8 +10,12 @@ export default function Index({ data }) {
     <>
       <div className={styles.slider}>
         <Swiper
+          breakpoints={{
+            1400: {
+              slidesPerView: 2,
+            },
+          }}
           spaceBetween={25}
-          slidesPerView={2}
           autoplay={{
             delay: 5000,
             pauseOnMouseEnter: true,
@@ -19,7 +23,7 @@ export default function Index({ data }) {
           }}
           modules={[Autoplay]}
         >
-          {data?.results.slice(0, 4).map((movie) => (
+          {data?.results.slice(0, 5).map((movie) => (
             <SwiperSlide>
               <a href={`/movie/${movie.id}`}>
                 <MovieCard
@@ -36,15 +40,30 @@ export default function Index({ data }) {
       <div className={styles.category}>
         <div className={styles.title}>Kategoriler</div>
         <div className={styles.categories}>
-          {[...new Array(4)].map(() => {
-            return <img src="https://dummyimage.com/295x200/989898" />;
+          {[...new Array(1)].map(() => {
+            return (
+              <>
+                <a href="category/878">
+                  <img src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/5C3RriLKkIAQtQMx85JLtu4rVI2.jpg" />
+                </a>
+                <a href="category/28">
+                  <img src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/7py8kUCYaOdFn1TfVS87BDBySOz.jpg" />
+                </a>
+                <a href="category/16">
+                  <img src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/7LuYujytHPCwS6ZKreKacmTSkyf.jpg" />
+                </a>
+                <a href="category/18">
+                  <img src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/l6hQWH9eDksNJNiXWYRkWqikOdu.jpg" />
+                </a>
+              </>
+            );
           })}
         </div>
       </div>
       <div className={styles.movie}>
         <div className={styles.title}>Filmler</div>
         <div className={styles.movies}>
-          {data?.results.slice(4).map((movie) => (
+          {data?.results.slice(5).map((movie) => (
             <a href={`/movie/${movie.id}`}>
               <MovieCard
                 poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

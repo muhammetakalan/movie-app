@@ -6,7 +6,7 @@ export default function TopRated({ data }) {
   return (
     <div className={styles.movie}>
       <div className={styles.movies}>
-        {data?.results.slice(4).map((movie) => (
+        {data?.results.map((movie) => (
           <a href={`/movie/${movie.id}`}>
             <MovieCard
               poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
