@@ -28,5 +28,5 @@ export const getData = async (endpoint, query) => {
     `${process.env.TMDB_API_URL}${endpoint}?api_key=${process.env.TMDB_API_KEY}&language=tr&${query}`
   );
 
-  return { props: { data: await data.json() } };
+  return data.json();
 };

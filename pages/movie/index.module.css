@@ -1,0 +1,34 @@
+.poster {
+  position: relative;
+  height: 500px;
+}
+
+.poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.overview {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.iframe {
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+}
+
+/* TODO : KOD TEKRARI*/
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 50px;
+}
+
+/* TODO : KOD TEKRARI*/
+.slider > * {
+  border-radius: 20px;
+}

@@ -5,8 +5,9 @@ import { tmdbGenreIdToName, getData } from "../utils";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 
-export default function Index({ data }) {
+export default function Index({ movies }) {
   return (
+    // TODO : VERİ KONTROLÜ YAP
     <>
       <div className={styles.slider}>
         <Swiper
@@ -23,7 +24,7 @@ export default function Index({ data }) {
           }}
           modules={[Autoplay]}
         >
-          {data?.results.slice(0, 5).map((movie) => (
+          {movies?.results.slice(0, 5).map((movie) => (
             <SwiperSlide>
               <a href={`/movie/${movie.id}`}>
                 <MovieCard
@@ -60,25 +61,27 @@ export default function Index({ data }) {
           })}
         </div>
       </div>
-      <div className={styles.movie}>
-        <div className={styles.title}>Filmler</div>
-        <div className={styles.movies}>
-          {data?.results.slice(5).map((movie) => (
-            <a href={`/movie/${movie.id}`}>
-              <MovieCard
-                poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                category={tmdbGenreIdToName(movie.genre_ids[0])}
-                rate={Math.round(movie.vote_average / 2)}
-                title={movie.title}
-              />
-            </a>
-          ))}
-        </div>
+      <div className={styles.title}>Filmler</div>
+      <div className={styles.movies}>
+        {movies?.results.slice(5).map((movie) => (
+          <a href={`/movie/${movie.id}`}>
+            <MovieCard
+              poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              category={tmdbGenreIdToName(movie.genre_ids[0])}
+              rate={Math.round(movie.vote_average / 2)}
+              title={movie.title}
+            />
+          </a>
+        ))}
       </div>
     </>
   );
 }
 
 export async function getStaticProps() {
-  return getData("/discover/movie");
+  return {
+    props: {
+      movies: await getData("/discover/movie"),
+    },
+  };
 }

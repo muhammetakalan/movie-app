@@ -2,11 +2,12 @@ import styles from "../index.module.css";
 import MovieCard from "../../components/Card";
 import { tmdbGenreIdToName, getData } from "../../utils";
 
-export default function Animation({ data }) {
+export default function Animation({ movies }) {
   return (
+    // TODO : VERİ KONTROLÜ YAP
     <div className={styles.movie}>
       <div className={styles.movies}>
-        {data?.results.map((movie) => (
+        {movies?.results.map((movie) => (
           <a href={`/movie/${movie.id}`}>
             <MovieCard
               poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -29,5 +30,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  return getData("/discover/movie", `with_genres=${params.id}`);
+  return {
+    props: {
+      movies: await getData("/discover/movie", `with_genres=${params.id}`),
+    },
+  };
 }

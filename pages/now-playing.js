@@ -2,25 +2,28 @@ import styles from "./index.module.css";
 import MovieCard from "../components/Card";
 import { tmdbGenreIdToName, getData } from "../utils";
 
-export default function NowPlaying({ data }) {
+export default function NowPlaying({ movies }) {
   return (
-    <div className={styles.movie}>
-      <div className={styles.movies}>
-        {data?.results.map((movie) => (
-          <a href={`/movie/${movie.id}`}>
-            <MovieCard
-              poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              category={tmdbGenreIdToName(movie.genre_ids[0])}
-              rate={Math.round(movie.vote_average / 2)}
-              title={movie.title}
-            />
-          </a>
-        ))}
-      </div>
+    // TODO : VERİ KONTROLÜ YAP
+    <div className={styles.movies}>
+      {movies?.results.map((movie) => (
+        <a href={`/movie/${movie.id}`}>
+          <MovieCard
+            poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            category={tmdbGenreIdToName(movie.genre_ids[0])}
+            rate={Math.round(movie.vote_average / 2)}
+            title={movie.title}
+          />
+        </a>
+      ))}
     </div>
   );
 }
 
 export async function getStaticProps() {
-  return getData("/movie/now_playing");
+  return {
+    props: {
+      movies: await getData("/movie/now_playing"),
+    },
+  };
 }
