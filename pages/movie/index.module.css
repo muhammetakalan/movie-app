@@ -1,12 +1,14 @@
-.poster {
-  position: relative;
-  height: 500px;
+.slider {
+  height: 450px;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
-.poster img {
-  width: 100%;
+.slider > * {
   height: 100%;
-  object-fit: cover;
+}
+
+.slider img {
   border-radius: 20px;
 }
 
@@ -15,20 +17,25 @@
   line-height: 1.5;
 }
 
-.iframe {
+.miniInfo {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.miniInfo svg {
+  margin-right: 10px;
+}
+
+.miniInfo > * {
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px 10px 0 0;
+  background-color: #d22f27;
+}
+
+.trailer {
   width: 100%;
   height: 600px;
-  border-radius: 20px;
-}
-
-/* TODO : KOD TEKRARI*/
-.movies {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 50px;
-}
-
-/* TODO : KOD TEKRARI*/
-.slider > * {
   border-radius: 20px;
 }

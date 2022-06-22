@@ -20,7 +20,7 @@ export const tmdbGenreIdToName = (id) => {
     { id: 10752, name: "Savaş" },
     { id: 37, name: "Batılı" },
   ];
-  return genres.find((genre) => genre.id === id)?.name;
+  return genres.find((genre) => genre.id === id).name;
 };
 
 export const getData = async (endpoint, query) => {

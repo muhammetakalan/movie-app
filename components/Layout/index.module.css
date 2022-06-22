@@ -6,26 +6,12 @@
 .content {
   z-index: 1;
   flex: 1;
-  padding: 80px 80px 80px 80px;
+  padding: 80px;
   overflow-y: auto;
 }
 
-@media screen and (max-width: 1600px) {
-  .content {
-    padding: 80px;
-  }
-}
-
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 992px) {
   .content {
     padding: 40px;
   }
-}
-
-.content > * {
-  margin-bottom: 50px;
-}
-
-.content > *:last-child {
-  margin-bottom: 0;
 }

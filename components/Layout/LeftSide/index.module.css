@@ -1,5 +1,5 @@
 .leftside {
-  width: 370px;
+  width: 350px;
   padding: 80px 0 0 80px;
   overflow-y: auto;
   border-right: 2px solid #24252a;
@@ -7,13 +7,13 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 992px) {
   .leftside {
     display: none;
   }
 }
 
-.leftside > * svg {
+.leftside svg {
   margin-right: 10px;
 }
 

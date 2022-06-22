@@ -1,13 +1,13 @@
 import styles from "./index.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { BiCompass } from "react-icons/bi";
-import { IoLogInOutline } from "react-icons/io5";
 import {
   RiMovie2Fill,
   RiHomeFill,
+  RiCompass3Line,
   RiTimerFlashLine,
   RiSettings2Line,
+  RiLoginBoxLine,
 } from "react-icons/ri";
 
 export default function LeftSide() {
@@ -31,7 +31,7 @@ export default function LeftSide() {
         </Link>
         <Link href="/discovery">
           <a className={path == "/discovery" && styles.active}>
-            <BiCompass />
+            <RiCompass3Line />
             Keşfet
           </a>
         </Link>
@@ -52,7 +52,7 @@ export default function LeftSide() {
         </Link>
         <Link href="/">
           <a>
-            <IoLogInOutline />
+            <RiLoginBoxLine />
             Giriş Yap
           </a>
         </Link>
