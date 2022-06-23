@@ -1,4 +1,4 @@
-.slider > *,
-.category img {
+.slider > * {
+  min-width: 200px;
   border-radius: 20px;
 }

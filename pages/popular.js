@@ -6,10 +6,10 @@ export default function Popular({ movies }) {
     <>
       {movies && (
         <div className="card-list ">
-          {movies.results.map((movie) => (
-            <a href={`/movie/${movie.id}`}>
+          {movies.results.map((movie, i) => (
+            <a key={i} href={`/movie/${movie.id}`}>
               <MovieCard
-                poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                poster={`${process.env.TMDB_API_IMAGE_URL}/w342${movie.poster_path}`}
                 category={tmdbGenreIdToName(movie.genre_ids[0])}
                 rate={Math.round(movie.vote_average / 2)}
                 title={movie.title}

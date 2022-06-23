@@ -1,6 +1,7 @@
 import styles from "./index.module.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import Head from "next/head";
 import MovieCard from "../../components/Card/Movie";
 import { tmdbGenreIdToName, getData } from "../../utils";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +15,9 @@ export default function Movie({ movie, images, similar }) {
     <>
       {movie && images && similar && (
         <>
+          <Head>
+            <title>{movie.title}</title>
+          </Head>
           <div className={styles.slider}>
             <Swiper
               slidesPerView={1}
@@ -29,20 +33,21 @@ export default function Movie({ movie, images, similar }) {
               }}
               navigation={true}
             >
-              {images.backdrops.map((movie) => (
-                <SwiperSlide>
+              {images.backdrops.slice(0, 4).map((movie, i) => (
+                <SwiperSlide key={i}>
                   <img
-                    src={`https://image.tmdb.org/t/p/original${movie.file_path}`}
+                    src={`${process.env.TMDB_API_IMAGE_URL}/w1280${movie.file_path}`}
+                    alt="backdrop"
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
-          <h1>{movie.title}</h1>
+          <h1 className={styles.title}>{movie.title}</h1>
           <p className={styles.overview}>{movie.overview}</p>
           <div className={styles.miniInfo}>
-            {movie.genres.map((genre) => (
-              <a href={`/category/${genre.id}`}>
+            {movie.genres.map((genre, i) => (
+              <a key={i} href={`/category/${genre.id}`}>
                 <BiCategory />
                 {tmdbGenreIdToName(genre.id)}
               </a>
@@ -72,10 +77,10 @@ export default function Movie({ movie, images, similar }) {
           ></iframe>
           <h2 className="title">Benzerler</h2>
           <div className="card-list">
-            {similar.results.slice(0, 10).map((movie) => (
-              <a href={`/movie/${movie.id}`}>
+            {similar.results.slice(0, 10).map((movie, i) => (
+              <a key={i} href={`/movie/${movie.id}`}>
                 <MovieCard
-                  poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  poster={`${process.env.TMDB_API_IMAGE_URL}/w342${movie.poster_path}`}
                   category={tmdbGenreIdToName(movie.genre_ids[0])}
                   rate={Math.round(movie.vote_average / 2)}
                   title={movie.title}

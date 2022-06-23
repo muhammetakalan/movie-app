@@ -21,13 +21,10 @@ export default function Navbar() {
     <div className={styles.navbar}>
       <div className={styles.menu}>
         <Link href="/popular">
-          <a className={path == "/popular" && "active"}>Popüler</a>
+          <a className={path == "/popular" ? "active" : ""}>Popüler</a>
         </Link>
         <Link href="/top-rated">
-          <a className={path == "/top-rated" && "active"}>Beğenilen</a>
-        </Link>
-        <Link href="/now-playing">
-          <a className={path == "/now-playing" && "active"}>Oynayan</a>
+          <a className={path == "/top-rated" ? "active" : ""}>Beğenilen</a>
         </Link>
       </div>
       <form className={styles.search} onSubmit={handleSubmit} method="post">

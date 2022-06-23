@@ -1,6 +1,19 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
   env: {
     TMDB_API_URL: process.env.TMDB_API_URL,
+    TMDB_API_IMAGE_URL: process.env.TMDB_API_IMAGE_URL,
     TMDB_API_KEY: process.env.TMDB_API_KEY,
   },
-};
+
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+  },
+
+  images: {
+    domains: ["image.tmdb.org", "www.themoviedb.org"],
+  },
+});

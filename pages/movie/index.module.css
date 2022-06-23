@@ -5,12 +5,20 @@
   border-radius: 20px;
 }
 
-.slider {
-  height: 425px;
+.slider > * {
+  height: 450px;
+  min-width: 200px;
 }
 
-.slider > * {
+.slider > * img {
+  width: 100%;
   height: 100%;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .overview {
@@ -28,11 +36,12 @@
   display: flex;
   padding: 10px;
   margin-right: 10px;
+  min-width: max-content;
   background-color: #d22f27;
 }
 
 @media screen and (max-width: 768px) {
-  .miniInfo > span {
+  .miniInfo > * {
     margin-bottom: 10px;
   }
 }
@@ -43,5 +52,6 @@
 
 .trailer {
   width: 100%;
-  height: 600px;
+  height: 525px;
+  min-width: 200px;
 }

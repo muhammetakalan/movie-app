@@ -4,7 +4,7 @@
 }
 
 .card {
-  height: 100%;
+  height: 350px;
   overflow: hidden;
   position: relative;
 }
@@ -47,6 +47,10 @@
   margin: 16px 0 16px 0;
 }
 
-.rate > svg {
+.rate > span {
   margin-right: 2px;
+}
+
+.rate > span:last-child {
+  margin-right: 0;
 }
