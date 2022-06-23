@@ -1,10 +1,9 @@
 .leftside {
-  width: 350px;
-  padding: 80px 0 0 80px;
-  overflow-y: auto;
-  border-right: 2px solid #24252a;
+  padding: 80px;
   font-size: 18px;
+  overflow-y: auto;
   font-weight: bold;
+  border-right: 2px solid #24252a;
 }
 
 @media screen and (max-width: 992px) {
@@ -22,31 +21,25 @@
 }
 
 .logo {
+  height: 60px;
   display: flex;
   font-size: 24px;
+  align-items: center;
 }
 
 .nav {
-  margin-top: 80px;
   color: #696972;
 }
 
 .title {
   color: #9696a3;
-}
-
-.active {
-  color: #fff;
+  margin-top: 80px;
 }
 
 .nav > * {
   display: flex;
   margin-bottom: 50px;
   transition: all 0.2s;
-}
-
-.nav > *:last-child {
-  margin-bottom: 0;
 }
 
 .nav > a:hover {

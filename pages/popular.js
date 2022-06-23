@@ -5,7 +5,7 @@ export default function Popular({ movies }) {
   return (
     <>
       {movies && (
-        <div className="grid-list ">
+        <div className="card-list ">
           {movies.results.map((movie) => (
             <a href={`/movie/${movie.id}`}>
               <MovieCard

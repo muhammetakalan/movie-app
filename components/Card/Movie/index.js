@@ -13,7 +13,7 @@ export default function MovieCard({ poster, category, rate, title }) {
               return <>{index < rate ? <AiFillStar /> : <AiOutlineStar />}</>;
             })}
           </div>
-          <div className={styles.title}>{title}</div>
+          {title}
         </div>
       </div>
     </div>

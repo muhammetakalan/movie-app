@@ -24,19 +24,19 @@ export default function LeftSide() {
       <div className={styles.nav}>
         <div className={styles.title}>MENÜ</div>
         <Link href="/">
-          <a className={path == "/" && styles.active}>
+          <a className={path == "/" && "active"}>
             <RiHomeFill />
             Ana Sayfa
           </a>
         </Link>
         <Link href="/discovery">
-          <a className={path == "/discovery" && styles.active}>
+          <a className={path == "/discovery" && "active"}>
             <RiCompass3Line />
             Keşfet
           </a>
         </Link>
         <Link href="/coming-soon">
-          <a className={path == "/coming-soon" && styles.active}>
+          <a className={path == "/coming-soon" && "active"}>
             <RiTimerFlashLine />
             Çok Yakında
           </a>
@@ -45,7 +45,7 @@ export default function LeftSide() {
       <div className={styles.nav}>
         <div className={styles.title}>DİĞER</div>
         <Link href="/settings">
-          <a className={path == "/settings" && styles.active}>
+          <a className={path == "/settings" && "active"}>
             <RiSettings2Line />
             Ayarlar
           </a>

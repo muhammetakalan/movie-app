@@ -4,7 +4,6 @@
 }
 
 .content {
-  z-index: 1;
   flex: 1;
   padding: 80px;
   overflow-y: auto;

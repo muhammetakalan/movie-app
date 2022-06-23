@@ -1,14 +1,15 @@
-.card {
-  max-height: 350px;
-  position: relative;
-  overflow: hidden;
+.card,
+.category {
   border-radius: 20px;
 }
 
-.poster {
-  width: 100%;
+.card {
   height: 100%;
-  object-fit: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+.poster {
   transition: all 0.2s;
 }
 
@@ -17,12 +18,11 @@
 }
 
 .overlay {
-  z-index: 1;
-  position: absolute;
+  top: 0px;
   left: 0px;
   right: 0px;
-  top: 0px;
   bottom: 0px;
+  position: absolute;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
@@ -31,29 +31,22 @@
 }
 
 .info {
-  position: absolute;
   left: 24px;
   right: 24px;
   bottom: 24px;
+  position: absolute;
 }
 
 .category {
-  height: 24px;
-  padding: 4px 8px 4px 8px;
-  border-radius: 8px;
   font-size: 14px;
+  padding: 4px 8px 4px 8px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 .rate {
-  margin-top: 1rem;
+  margin: 16px 0 16px 0;
 }
 
-.rate > * {
+.rate > svg {
   margin-right: 2px;
-}
-
-.title {
-  font-size: 18px;
-  margin-top: 1rem;
 }

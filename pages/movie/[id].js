@@ -41,10 +41,12 @@ export default function Movie({ movie, images, similar }) {
           <h1>{movie.title}</h1>
           <p className={styles.overview}>{movie.overview}</p>
           <div className={styles.miniInfo}>
-            <span>
-              <BiCategory />
-              {tmdbGenreIdToName(movie.genres[0].id)}
-            </span>
+            {movie.genres.map((genre) => (
+              <a href={`/category/${genre.id}`}>
+                <BiCategory />
+                {tmdbGenreIdToName(genre.id)}
+              </a>
+            ))}
             <span>
               <BsCalendarDate />
               {movie.release_date}
@@ -62,14 +64,14 @@ export default function Movie({ movie, images, similar }) {
               {movie.production_countries[0].name}
             </span>
           </div>
-          <h1 className="title">Fragman</h1>
+          <h2 className="title">Fragman</h2>
           <iframe
             className={styles.trailer}
-            src={`https://www.youtube.com/embed/${movie.videos.results[0].key}`}
+            src={`https://www.youtube.com/embed/${movie.videos.results[0]?.key}`}
             allow="fullscreen"
           ></iframe>
-          <h1 className="title">Benzerler</h1>
-          <div className="grid-list">
+          <h2 className="title">Benzerler</h2>
+          <div className="card-list">
             {similar.results.slice(0, 10).map((movie) => (
               <a href={`/movie/${movie.id}`}>
                 <MovieCard

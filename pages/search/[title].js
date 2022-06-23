@@ -1,7 +1,7 @@
-import MovieCard from "../components/Card/Movie";
-import { tmdbGenreIdToName, getData } from "../utils";
+import MovieCard from "../../components/Card/Movie";
+import { tmdbGenreIdToName, getData } from "../../utils";
 
-export default function TopRated({ movies }) {
+export default function Animation({ movies }) {
   return (
     <>
       {movies && (
@@ -22,10 +22,17 @@ export default function TopRated({ movies }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { title: "title" } }],
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
   return {
     props: {
-      movies: await getData("/movie/top_rated"),
+      movies: await getData("/search/movie", `query=${params.title}`),
     },
   };
 }

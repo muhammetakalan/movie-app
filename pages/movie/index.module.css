@@ -1,20 +1,22 @@
-.slider {
-  height: 450px;
-  overflow: hidden;
+.slider > *,
+.slider img,
+.miniInfo > *,
+.trailer {
   border-radius: 20px;
+}
+
+.slider {
+  height: 425px;
 }
 
 .slider > * {
   height: 100%;
 }
 
-.slider img {
-  border-radius: 20px;
-}
-
 .overview {
   font-size: 20px;
   line-height: 1.5;
+  margin: 20px 0 20px 0;
 }
 
 .miniInfo {
@@ -22,20 +24,24 @@
   flex-wrap: wrap;
 }
 
-.miniInfo svg {
-  margin-right: 10px;
-}
-
 .miniInfo > * {
   display: flex;
   padding: 10px;
-  border-radius: 10px;
-  margin: 20px 10px 0 0;
+  margin-right: 10px;
   background-color: #d22f27;
+}
+
+@media screen and (max-width: 768px) {
+  .miniInfo > span {
+    margin-bottom: 10px;
+  }
+}
+
+.miniInfo svg {
+  margin-right: 6px;
 }
 
 .trailer {
   width: 100%;
   height: 600px;
-  border-radius: 20px;
 }
