@@ -1,17 +1,21 @@
 import styles from "./index.module.css";
 import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import {
   RiMovie2Fill,
   RiHomeFill,
   RiCompass3Line,
-  RiTimerFlashLine,
+  RiHeartLine,
   RiSettings2Line,
+  RiLogoutBoxLine,
   RiLoginBoxLine,
 } from "react-icons/ri";
 
 export default function LeftSide() {
+  const { data: session } = useSession();
   const path = useRouter().pathname;
+
   return (
     <div className={styles.leftside}>
       <Link href="/">
@@ -34,12 +38,14 @@ export default function LeftSide() {
             Keşfet
           </a>
         </Link>
-        <Link href="/coming-soon">
-          <a className={path == "/coming-soon" ? "active" : ""}>
-            <RiTimerFlashLine />
-            Çok Yakında
-          </a>
-        </Link>
+        {session && (
+          <Link href="/saved">
+            <a className={path == "/saved" ? "active" : ""}>
+              <RiHeartLine />
+              Kaydedilen
+            </a>
+          </Link>
+        )}
       </div>
       <div className={styles.nav}>
         <div className={styles.title}>DİĞER</div>
@@ -49,12 +55,17 @@ export default function LeftSide() {
             Ayarlar
           </a>
         </Link>
-        <Link href="#">
-          <a>
+        {session ? (
+          <span onClick={() => signOut()}>
+            <img src={session.user.image} alt="avatar" />
+            Çıkış Yap
+          </span>
+        ) : (
+          <span onClick={() => signIn()}>
             <RiLoginBoxLine />
             Giriş Yap
-          </a>
-        </Link>
+          </span>
+        )}
       </div>
     </div>
   );

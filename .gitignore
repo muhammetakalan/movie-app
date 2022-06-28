@@ -1,4 +1,14 @@
-.next
-node_modules
-yarn.lock
+# next.js
+.next/
+
+# Dependency directories
+node_modules/
+
+# PWA files
+/public/sw.js
+/public/sw.js.map
+/public/workbox-*.js
+/public/workbox-*.js.map
+
+# local env files
 .env.development

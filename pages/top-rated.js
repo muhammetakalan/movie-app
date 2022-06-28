@@ -7,14 +7,14 @@ export default function TopRated({ movies }) {
       {movies && (
         <div className="card-list">
           {movies.results.map((movie, i) => (
-            <a key={i} href={`/movie/${movie.id}`}>
-              <MovieCard
-                poster={`${process.env.TMDB_API_IMAGE_URL}/w342${movie.poster_path}`}
-                category={tmdbGenreIdToName(movie.genre_ids[0])}
-                rate={Math.round(movie.vote_average / 2)}
-                title={movie.title}
-              />
-            </a>
+            <MovieCard
+              key={i}
+              href={`/movie/${movie.id}`}
+              poster={`${process.env.TMDB_API_IMAGE_URL}/w342${movie.poster_path}`}
+              category={tmdbGenreIdToName(movie.genre_ids[0])}
+              rate={Math.round(movie.vote_average / 2)}
+              title={movie.title}
+            />
           ))}
         </div>
       )}
