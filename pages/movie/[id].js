@@ -43,7 +43,7 @@ export default function Movie({ movie, images, recommendations }) {
                     layout="fill"
                     placeholder="blur"
                     blurDataURL={`/_next/image?url=${process.env.TMDB_API_IMAGE_URL}/w1280${backdrop.file_path}&w=16&q=1`}
-                    priority
+                    unoptimized
                   />
                 </SwiperSlide>
               ))}

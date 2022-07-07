@@ -15,6 +15,7 @@ export default function MovieCard({ href, poster, category, rate, title }) {
             layout="fill"
             placeholder="blur"
             blurDataURL={`/_next/image?url=${poster}&w=16&q=1`}
+            unoptimized
           />
           <div className={styles.overlay}>
             <div className={styles.info}>
