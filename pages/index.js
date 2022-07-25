@@ -63,5 +63,6 @@ export async function getStaticProps() {
     props: {
       movies: await getData("/discover/movie"),
     },
+    revalidate: 86400,
   };
 }
