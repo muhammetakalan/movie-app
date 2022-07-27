@@ -1,20 +1,29 @@
 import styles from "./index.module.css";
 import Link from "next/link";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { getData } from "../../../utils.js";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import {
   RiMovie2Fill,
   RiHomeFill,
-  RiCompass3Line,
   RiHeartLine,
-  RiSettings2Line,
-  RiLogoutBoxLine,
-  RiLoginBoxLine,
+  RiArrowRightCircleLine,
 } from "react-icons/ri";
 
-export default function LeftSide() {
-  const { data: session } = useSession();
-  const path = useRouter().pathname;
+export default function LeftSide({ categories }) {
+  const [genres, setGenres] = useState([]);
+  const path = useRouter().asPath;
+
+  useEffect(() => {
+    if (!genres.length) {
+      getGenres();
+    }
+  });
+
+  const getGenres = async () => {
+    const data = await getData("/genre/movie/list");
+    setGenres(data.genres);
+  };
 
   return (
     <div className={styles.leftside}>
@@ -32,40 +41,23 @@ export default function LeftSide() {
             Ana Sayfa
           </a>
         </Link>
-        <Link href="/discovery">
-          <a className={path == "/discovery" ? "active" : ""}>
-            <RiCompass3Line />
-            Keşfet
+        <Link href="/favorites">
+          <a className={path == "/favorites" ? "active" : ""}>
+            <RiHeartLine />
+            Beğenilenler
           </a>
         </Link>
-        {session && (
-          <Link href="/saved">
-            <a className={path == "/saved" ? "active" : ""}>
-              <RiHeartLine />
-              Kaydedilen
-            </a>
-          </Link>
-        )}
       </div>
       <div className={styles.nav}>
-        <div className={styles.title}>DİĞER</div>
-        <Link href="/settings">
-          <a className={path == "/settings" ? "active" : ""}>
-            <RiSettings2Line />
-            Ayarlar
-          </a>
-        </Link>
-        {session ? (
-          <span onClick={() => signOut()}>
-            <img src={session.user.image} alt="avatar" />
-            Çıkış Yap
-          </span>
-        ) : (
-          <span onClick={() => signIn()}>
-            <RiLoginBoxLine />
-            Giriş Yap
-          </span>
-        )}
+        <div className={styles.title}>KATEGORİLER</div>
+        {genres.map((category) => (
+          <Link href={`/category/${category.id}`} key={category.id}>
+            <a className={path == `/category/${category.id}` ? "active" : ""}>
+              <RiArrowRightCircleLine />
+              {category.name}
+            </a>
+          </Link>
+        ))}
       </div>
     </div>
   );

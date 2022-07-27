@@ -1,8 +1,8 @@
 import styles from "./index.module.css";
 import Link from "next/link";
 import Router from "next/router";
-import { RiSearchLine } from "react-icons/ri";
 import { useState } from "react";
+import { RiSearchLine } from "react-icons/ri";
 
 export default function Navbar() {
   const path = Router.useRouter().pathname;
@@ -14,7 +14,10 @@ export default function Navbar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Router.push(`/search/${search}`);
+    if (search) {
+      setSearch("");
+      Router.push(`/search/${search}`);
+    }
   };
 
   return (
@@ -23,13 +26,18 @@ export default function Navbar() {
         <Link href="/popular">
           <a className={path == "/popular" ? "active" : ""}>Popüler</a>
         </Link>
-        <Link href="/top-rated">
-          <a className={path == "/top-rated" ? "active" : ""}>Beğenilen</a>
+        <Link href="/upcoming">
+          <a className={path == "/upcoming" ? "active" : ""}>Yaklaşan</a>
         </Link>
       </div>
       <form className={styles.search} onSubmit={handleSubmit} method="post">
         <RiSearchLine />
-        <input type="text" onChange={handleSearch} placeholder="Arama" />
+        <input
+          type="text"
+          value={search}
+          onChange={handleSearch}
+          placeholder="Arama"
+        />
       </form>
     </div>
   );

@@ -2,11 +2,6 @@
 @import "formalize.css";
 @import "normalize.css";
 
-body,
-#__next {
-  height: 100vh;
-}
-
 body {
   color: white;
   background-color: #191a1f;

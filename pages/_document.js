@@ -9,6 +9,7 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" href="/icon.png" />
           <meta name="theme-color" content="#191a1f" />
           <meta name="description" content="Movie trailer site" />
+          <meta property="og:image" content="/og-image.jpg" />
         </Head>
         <body>
           <Main />

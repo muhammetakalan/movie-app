@@ -1,7 +1,7 @@
 import MovieCard from "../components/Card/Movie";
 import { tmdbGenreIdToName, getData } from "../utils";
 
-export default function TopRated({ movies }) {
+export default function Upcoming({ movies }) {
   return (
     <>
       {movies && (
@@ -25,7 +25,7 @@ export default function TopRated({ movies }) {
 export async function getStaticProps() {
   return {
     props: {
-      movies: await getData("/movie/top_rated"),
+      movies: await getData("/movie/upcoming"),
     },
   };
 }

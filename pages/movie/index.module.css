@@ -35,6 +35,19 @@
   background-color: #d22f27;
 }
 
+.miniInfo > :last-child {
+  cursor: pointer;
+  margin-right: 0;
+}
+
+.active {
+  background-color: #428bca;
+}
+
+.passive {
+  background-color: gray;
+}
+
 @media screen and (max-width: 768px) {
   .miniInfo > * {
     margin-bottom: 10px;

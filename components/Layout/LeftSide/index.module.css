@@ -1,5 +1,7 @@
 .leftside {
+  height: 100%;
   padding: 80px;
+  position: fixed;
   font-size: 18px;
   overflow-y: auto;
   font-weight: bold;

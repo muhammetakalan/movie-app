@@ -5,14 +5,48 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import MovieCard from "../../components/Card/Movie";
+import { useState, useEffect } from "react";
 import { tmdbGenreIdToName, getData } from "../../utils";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
-import { BiTime, BiFlag, BiCategory } from "react-icons/bi";
-import { BsCalendarDate } from "react-icons/bs";
+import { BiTime, BiFlag, BiCategory, BiCalendar } from "react-icons/bi";
+import { RiHeartLine, RiHeartFill } from "react-icons/ri";
 import { SiImdb } from "react-icons/si";
 
 export default function Movie({ movie, images, recommendations }) {
+  const [like, setLike] = useState(false);
+
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("movies"))?.some((e) => e.id == movie?.id)
+      ? setLike(true)
+      : setLike(false);
+  });
+
+  const likeMovie = () => {
+    if (typeof window !== "undefined") {
+      const movies = JSON.parse(localStorage.getItem("movies"));
+      if (like) {
+        setLike(false);
+        movies.splice(
+          movies.findIndex((x) => x.id == movie?.id),
+          1
+        );
+        localStorage.setItem("movies", JSON.stringify(movies));
+        if (movies.length == 0) {
+          localStorage.removeItem("movies");
+        }
+      } else {
+        setLike(true);
+        if (movies) {
+          movies.push(movie);
+          localStorage.setItem("movies", JSON.stringify(movies));
+        } else {
+          localStorage.setItem("movies", JSON.stringify([movie]));
+        }
+      }
+    }
+  };
+
   return (
     <>
       {movie && images && recommendations && (
@@ -61,7 +95,7 @@ export default function Movie({ movie, images, recommendations }) {
               </Link>
             ))}
             <span>
-              <BsCalendarDate />
+              <BiCalendar />
               {movie.release_date}
             </span>
             <span>
@@ -75,6 +109,13 @@ export default function Movie({ movie, images, recommendations }) {
             <span>
               <BiFlag />
               {movie.production_countries[0].name}
+            </span>
+            <span
+              onClick={likeMovie}
+              className={like ? styles.active : styles.passive}
+            >
+              {like ? <RiHeartFill /> : <RiHeartLine />}
+              {like ? "Geri al" : "Beğen"}
             </span>
           </div>
           <h2 className="title">Fragman</h2>
