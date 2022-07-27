@@ -20,5 +20,6 @@
     "next-pwa": "^5.5.4",
     "react-icons": "^4.4.0",
     "swiper": "^8.3.2"
-  }
+  },
+  "license": "CC0-1.0"
 }
