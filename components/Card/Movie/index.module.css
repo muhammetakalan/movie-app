@@ -18,29 +18,29 @@
 }
 
 .overlay {
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 0.75) 100%
   );
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 
 .info {
-  left: 24px;
-  right: 24px;
   bottom: 24px;
+  left: 24px;
   position: absolute;
+  right: 24px;
 }
 
 .category {
+  background-color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
   padding: 4px 8px 4px 8px;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .rate {

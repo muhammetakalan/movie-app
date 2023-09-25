@@ -1,8 +1,9 @@
-import "../styles/global.css";
-import Head from "next/head";
-import Layout from "../components/Layout";
+import Head from 'next/head'
 
-export default function App({ Component, pageProps: { ...pageProps } }) {
+import '../styles/global.css'
+import Layout from '../components/Layout'
+
+const App = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
@@ -12,5 +13,7 @@ export default function App({ Component, pageProps: { ...pageProps } }) {
         <Component {...pageProps} />
       </Layout>
     </>
-  );
+  )
 }
+
+export default App

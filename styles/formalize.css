@@ -9,9 +9,9 @@ html {
   text-rendering: optimizeLegibility;
 }
 body {
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 a {
   text-decoration: none;
@@ -58,9 +58,9 @@ textarea {
   resize: vertical;
 }
 table {
-  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  width: 100%;
 }
 td {
   padding: 0;

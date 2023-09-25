@@ -1,33 +1,34 @@
-import styles from "./index.module.css";
-import Link from "next/link";
-import Router from "next/router";
-import { useState } from "react";
-import { RiSearchLine } from "react-icons/ri";
+import Link from 'next/link'
+import Router from 'next/router'
+import { useState } from 'react'
+import { RiSearchLine } from 'react-icons/ri'
+
+import styles from './index.module.css'
 
 export default function Navbar() {
-  const path = Router.useRouter().pathname;
-  const [search, setSearch] = useState("");
+  const path = Router.useRouter().pathname
+  const [search, setSearch] = useState('')
 
   const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
+    setSearch(e.target.value)
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (search) {
-      setSearch("");
-      Router.push(`/search/${search}`);
+      setSearch('')
+      Router.push(`/search/${search}`)
     }
-  };
+  }
 
   return (
     <div className={styles.navbar}>
       <div className={styles.menu}>
         <Link href="/popular">
-          <a className={path == "/popular" ? "active" : ""}>Popüler</a>
+          <a className={path == '/popular' ? 'active' : ''}>Popüler</a>
         </Link>
         <Link href="/upcoming">
-          <a className={path == "/upcoming" ? "active" : ""}>Yaklaşan</a>
+          <a className={path == '/upcoming' ? 'active' : ''}>Yaklaşan</a>
         </Link>
       </div>
       <form className={styles.search} onSubmit={handleSubmit} method="post">
@@ -40,5 +41,5 @@ export default function Navbar() {
         />
       </form>
     </div>
-  );
+  )
 }

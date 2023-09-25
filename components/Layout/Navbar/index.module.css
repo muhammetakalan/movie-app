@@ -1,12 +1,12 @@
 .navbar {
-  height: 60px;
+  align-items: center;
+  color: #989898;
   display: flex;
   font-size: 24px;
-  color: #989898;
   font-weight: bold;
-  align-items: center;
-  margin-bottom: 80px;
+  height: 60px;
   justify-content: space-between;
+  margin-bottom: 80px;
 }
 
 @media screen and (max-width: 992px) {
@@ -24,11 +24,11 @@
 }
 
 .search {
-  height: 100%;
-  display: flex;
   align-items: center;
-  border-radius: 20px;
   border: 1px solid #989898;
+  border-radius: 20px;
+  display: flex;
+  height: 100%;
 }
 
 .search svg {
@@ -36,24 +36,24 @@
 }
 
 .search input {
-  width: 150px;
-  border: none;
-  outline: none;
   background: none;
+  border: none;
   color: #989898;
   font-weight: bold;
+  outline: none;
+  width: 150px;
 }
 
 @media screen and (max-width: 768px) {
   .navbar {
-    height: 140px;
     align-items: baseline;
     flex-direction: column;
+    height: 140px;
   }
 
   .menu > a {
     display: flex;
-    margin-right: 0;
     margin-bottom: 20px;
+    margin-right: 0;
   }
 }

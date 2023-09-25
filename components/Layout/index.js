@@ -1,6 +1,6 @@
-import styles from "./index.module.css";
-import LeftSide from "./LeftSide";
-import Navbar from "./Navbar";
+import styles from './index.module.css'
+import LeftSide from './LeftSide'
+import Navbar from './Navbar'
 
 export default function Layout({ children }) {
   return (
@@ -11,5 +11,5 @@ export default function Layout({ children }) {
         {children}
       </main>
     </div>
-  );
+  )
 }

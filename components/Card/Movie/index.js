@@ -1,7 +1,8 @@
-import styles from "./index.module.css";
-import Link from "next/link";
-import Image from "next/image";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import Link from 'next/link'
+import Image from 'next/image'
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+
+import styles from './index.module.css'
 
 export default function MovieCard({ href, poster, category, rate, title }) {
   return (
@@ -14,8 +15,7 @@ export default function MovieCard({ href, poster, category, rate, title }) {
             alt={title}
             layout="fill"
             placeholder="blur"
-            blurDataURL={`/_next/image?url=${poster}&w=16&q=1`}
-            unoptimized
+            blurDataURL={poster}
           />
           <div className={styles.overlay}>
             <div className={styles.info}>
@@ -26,7 +26,7 @@ export default function MovieCard({ href, poster, category, rate, title }) {
                     <span key={i}>
                       {i < rate ? <AiFillStar /> : <AiOutlineStar />}
                     </span>
-                  );
+                  )
                 })}
               </div>
               {title}
@@ -35,5 +35,5 @@ export default function MovieCard({ href, poster, category, rate, title }) {
         </div>
       </a>
     </Link>
-  );
+  )
 }
